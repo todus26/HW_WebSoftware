@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지뢰찾기 게임</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/flag-mode.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 게임 시작 화면 -->
+        <div id="start-screen" class="screen">
+            <h1>지뢰찾기 게임</h1>
+            <div class="game-preview">
+                <!-- 게임 미리보기가 여기에 동적으로 생성됩니다 -->
+            </div>
+            <button id="start-button" class="btn">게임 시작</button>
+            <p class="game-instructions">
+                <strong>게임 방법:</strong> 좌클릭으로 셀 열기, 우클릭으로 지뢰 표시(깃발)
+            </p>
+        </div>
+
+        <!-- 난이도 선택 화면 -->
+        <div id="difficulty-screen" class="screen hidden">
+            <h2>난이도 선택</h2>
+            <div class="difficulty-buttons">
+                <button id="easy-button" class="btn difficulty-btn" data-difficulty="easy">초급 (9x9, 10개 지뢰)</button>
+                <button id="medium-button" class="btn difficulty-btn" data-difficulty="medium">중급 (16x16, 40개 지뢰)</button>
+                <button id="hard-button" class="btn difficulty-btn" data-difficulty="hard">상급 (30x16, 99개 지뢰)</button>
+            </div>
+            <button id="back-to-start" class="btn back-btn">뒤로 가기</button>
+        </div>
+
+        <!-- 게임 화면 -->
+        <div id="game-screen" class="screen hidden">
+            <div class="game-header">
+                <div class="mine-counter">
+                    <span id="mine-count">000</span>
+                </div>
+                <button id="restart-button" class="btn">😊</button>
+                <div class="timer">
+                    <span id="timer-display">000</span>
+                </div>
+            </div>
+            <div id="game-board" class="game-board"></div>
+            <div class="game-controls">
+                <button id="back-to-difficulty" class="btn back-btn">뒤로 가기</button>
+            </div>
+        </div>
+
+        <!-- AI 도움말 버튼 (게임 화면 오른쪽 하단에 고정) -->
+        <button id="ai-help-button" class="btn help-btn disabled" disabled title="게임을 시작하면 AI 도움말을 사용할 수 있습니다.">AI 도움말</button>
+
+        <!-- 게임 종료 화면 -->
+        <div id="end-screen" class="screen hidden">
+            <h2 id="end-message">게임 종료</h2>
+            <div id="end-stats">
+                <p>소요 시간: <span id="time-spent">000</span>초</p>
+            </div>
+            <button id="play-again" class="btn">다시 하기</button>
+            <button id="back-to-main" class="btn back-btn">메인으로</button>
+        </div>
+
+        <!-- AI 도움말 모달 -->
+        <div id="ai-help-modal" style="display: none;">
+            <div class="modal-content">
+                <h3>AI 도움말</h3>
+                <div id="ai-help-message" class="ai-message">
+                    <!-- AI 도움말 내용이 여기에 삽입됩니다 -->
+                </div>
+                <button id="close-modal" class="btn">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript 파일 -->
+    <script>
+        // 중복 화면 방지를 위한 초기 스크립트
+        (function() {
+            // 페이지 로드 즉시 실행
+            document.addEventListener('DOMContentLoaded', function() {
+                console.log("초기화: DOM 로드 완료");
+                
+                // 시작 화면만 표시
+                const startScreen = document.getElementById('start-screen');
+                if (startScreen) {
+                    startScreen.classList.remove('hidden');
+                    startScreen.style.display = 'flex';
+                    console.log("초기화: 시작 화면 표시");
+                }
+                
+                // 모달 숨기기
+                const modal = document.getElementById('ai-help-modal');
+                if(modal) {
+                    modal.style.display = 'none';
+                }
+                
+                console.log("초기화: 화면 설정 완료");
+            });
+        })();
+    </script>
+    <script src="js/troubleshoot.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/ai-helper.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/mobile-support.js"></script>
+    <script src="js/game-preview.js"></script>
+</body>
+</html>

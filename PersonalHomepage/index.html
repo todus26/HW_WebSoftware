@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정새연 홈페이지</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 검색 인트로 화면 -->
+    <div id="search-intro" class="intro-container">
+        <div class="search-box">
+            <input type="text" id="name-search" placeholder="이름을 검색하세요...">
+            <button id="search-btn">검색</button>
+        </div>
+    </div>
+
+    <!-- 메인 홈페이지 (처음에는 숨겨져 있음) -->
+    <div id="main-content" class="hidden">
+        <header>
+            <h1>Jung SaeYeon</h1>
+        </header>
+        
+        <div class="content-container">
+            <div class="left-sidebar">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <img src="Myimage.jpg" alt="정새연 프로필 사진">
+                    </div>
+                    <div class="profile-info">
+                        <p><strong>Name :</strong> 정새연</p>
+                        <p><strong>Age :</strong> 22</p>
+                        <p><strong>Major :</strong> CBNU SoftWare 3rd</p>
+                        <p><strong>Student number :</strong> 2023041074</p>
+                        <p><strong>Contact :</strong></p>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="mailto:todus26@gmail.com" class="social-item">
+                            <img src="email.png" alt="이메일">
+                            <span>이메일</span>
+                        </a>
+                        <a href="https://github.com/todus26" class="social-item" target="_blank">
+                            <img src="github.png" alt="깃허브">
+                            <span>깃허브</span>
+                        </a>
+                        <a href="https://www.instagram.com/lrf0hv/" class="social-item" target="_blank">
+                            <img src="instargram.png" alt="인스타그램">
+                            <span>인스타</span>
+                        </a>
+                        <a href="https://todus26.tistory.com/" class="social-item" target="_blank">
+                            <img src="blog.png" alt="티스토리">
+                            <span>티스토리</span>
+                        </a>
+                    </div>
+                    
+                    <div class="youtube-section">
+                        <h4>내 추천 영상</h4>
+                        <div class="youtube-container">
+                            <iframe width="100%" height="100%" 
+                                src="https://www.youtube.com/embed/wfdAz2NaHXY"
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="main-section">
+                <div id="content-area">
+                    <h2>안녕하세요, 정새연입니다!</h2>
+                    <p>충북대학교 소프트웨어학부 3학년 학생입니다.</p>
+                    <p>이 페이지는 오픈소스 AI 웹 소프트웨어 과목의 과제로 제작되었습니다.</p>
+                    <p>JavaScript, HTML, CSS를 활용하여 만들었습니다.</p>
+                    
+                    <h3>이 프로젝트 소개</h3>
+                    <div class="project-container">
+                        <div class="project-item">
+                            <h4>검색 인터페이스 구현</h4>
+                            <p>홈페이지 진입 시 이름 검색 기능을 통해 접근할 수 있는 인터랙티브한 인터페이스를 구현했습니다. 애니메이션 효과를 적용하여 사용자 경험을 향상시켰습니다.</p>
+                            <div class="project-tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">애니메이션</span>
+                                <span class="tag">사용자 경험</span>
+                            </div>
+                        </div>
+                        <div class="project-item">
+                            <h4>방명록 시스템</h4>
+                            <p>localStorage를 활용한 방명록 기능을 구현했습니다. 사용자가 이름과 메시지를 남기면 웹 브라우저에 저장되며, 페이지를 새로 고침해도 데이터가 유지됩니다.</p>
+                            <div class="project-tags">
+                                <span class="tag">localStorage</span>
+                                <span class="tag">CRUD</span>
+                                <span class="tag">사용자 입력</span>
+                            </div>
+                        </div>
+                        <div class="project-item">
+                            <h4>캘린더 & 투두리스트</h4>
+                            <p>JavaScript로 구현된 캘린더와 연동된 투두리스트 기능을 구현했습니다. 날짜별로 할 일을 추가하고 관리할 수 있으며, localStorage를 통해 데이터를 저장합니다.</p>
+                            <div class="project-tags">
+                                <span class="tag">캘린더 구현</span>
+                                <span class="tag">이벤트 처리</span>
+                                <span class="tag">날짜 관리</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>활동 이력</h3>
+                    <div class="project-container">
+                        <div class="project-item">
+                            <h4>Python을 통한 방탈출 게임 개발</h4>
+                            <p>Python을 활용하여 텍스트 기반 방탈출 게임을 개발했습니다. 다양한 퍼즐과 스토리를 구현하고 사용자 인터페이스를 설계했습니다.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">게임 개발</span>
+                                <span class="tag">알고리즘</span>
+                            </div>
+                        </div>
+                        <div class="project-item">
+                            <h4>응급실 현황 홈페이지 프론트엔드 개발</h4>
+                            <p>React를 활용하여 응급실 현황을 실시간으로 보여주는 웹사이트의 프론트엔드를 담당했습니다. 사용자 친화적 인터페이스와 반응형 디자인을 구현했습니다.</p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">프론트엔드</span>
+                                <span class="tag">반응형 웹</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>기술 역량</h3>
+                    <div class="skills-container">
+                        <div class="skill-category">
+                            <h4>프로그래밍 언어</h4>
+                            <ul class="skills-list">
+                                <li>JavaScript</li>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>Python</li>
+                                <li>C++</li>
+                                <li>React</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3>방명록</h3>
+                    <div class="guestbook">
+                        <div class="guestbook-form">
+                            <h4>방명록 남기기</h4>
+                            <form id="guestbook-form">
+                                <div class="form-group">
+                                    <label for="guest-name">닉네임</label>
+                                    <input type="text" id="guest-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="guest-message">내용</label>
+                                    <textarea id="guest-message" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" id="guestbook-submit">등록하기</button>
+                            </form>
+                        </div>
+                        <div class="guestbook-list">
+                            <h4>방명록 목록</h4>
+                            <div id="guestbook-entries">
+                                <p class="no-entries">로딩 중...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>투두리스트</h3>
+                    <div class="todo-container">
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <button id="prev-month">이전 달</button>
+                                <h4 id="calendar-title">2025년 4월</h4>
+                                <button id="next-month">다음 달</button>
+                            </div>
+                            <div class="calendar" id="calendar"></div>
+                        </div>
+                        <div class="todo-list-container">
+                            <h4 id="todo-date-title">할 일 목록</h4>
+                            <div class="todo-form">
+                                <input type="text" id="todo-input" placeholder="할 일을 입력하세요">
+                                <button id="add-todo">추가</button>
+                            </div>
+                            <ul id="todo-list">
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3>강의 자료</h3>
+                    <div class="notion-preview">
+                        <div class="notion-info">
+                            <h4>오픈소스 AI 웹 소프트웨어 강의 노트</h4>
+                            <p>이 노션 페이지에는 지금까지 배운 오픈소스 AI 웹 소프트웨어 과목의 강의 자료와 실습 내용이 정리되어 있습니다. 수업에서 배운 내용을 복습하고 확인할 수 있습니다.</p>
+                            <a href="https://www.notion.so/ws-1d34c5fe05c980e19242fafb4e241925?pvs=4" target="_blank" class="notion-link">노션 페이지 방문하기</a>
+                        </div>
+                        <div class="notion-image">
+                            <img src="https://www.notion.so/images/meta/default.png" alt="노션 페이지 미리보기">
+                        </div>
+                    </div>
+                    
+                    <h3>학교 정보</h3>
+                    <div class="school-links">
+                        <div class="school-link-item">
+                            <a href="https://www.cbnu.ac.kr/www/index.do" target="_blank">
+                                <img src="banner_cbnu.png" alt="충북대학교">
+                                <span>충북대학교</span>
+                            </a>
+                        </div>
+                        <div class="school-link-item">
+                            <a href="https://eis.cbnu.ac.kr/cbnuLogin?1744472922" target="_blank">
+                                <img src="banner_eis.png" alt="학사정보시스템">
+                                <span>학사정보시스템</span>
+                            </a>
+                        </div>
+                        <div class="school-link-item">
+                            <a href="https://lms.chungbuk.ac.kr/" target="_blank">
+                                <img src="banner_dometory.png" alt="이러닝시스템">
+                                <span>이러닝시스템</span>
+                            </a>
+                        </div>
+                        <div class="school-link-item">
+                            <a href="https://cieat.chungbuk.ac.kr/clientMain/a/t/main.do" target="_blank">
+                                <img src="banner_cieat.png" alt="CIEAT">
+                                <span>CIEAT</span>
+                            </a>
+                        </div>
+                        <div class="school-link-item">
+                            <a href="https://sw7up.cbnu.ac.kr/home" target="_blank">
+                                <img src="banner_sw7up.png" alt="SW중심대학">
+                                <span>SW중심대학</span>
+                            </a>
+                        </div>
+                        <div class="school-link-item">
+                            <a href="https://software.cbnu.ac.kr/" target="_blank">
+                                <img src="banner_SW.png" alt="소프트웨어학과">
+                                <span>소프트웨어학과</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 정새연. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

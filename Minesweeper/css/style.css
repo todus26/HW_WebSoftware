@@ -1,0 +1,369 @@
+/* 전역 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 버튼 스타일 */
+.btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.back-btn {
+    background-color: #f44336;
+}
+
+.back-btn:hover {
+    background-color: #d32f2f;
+}
+
+.help-btn {
+    background-color: #2196F3;
+}
+
+.help-btn:hover {
+    background-color: #0b7dda;
+}
+
+/* 화면 스타일 */
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* 시작 화면 */
+.game-preview {
+    margin: 20px 0;
+    border: 3px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 280px;
+    height: 280px;
+    background-color: #999;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#start-button {
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 12px 30px;
+}
+
+/* 난이도 선택 화면 */
+.difficulty-buttons {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.difficulty-btn {
+    margin: 10px;
+    padding: 15px 25px;
+    font-size: 16px;
+    width: 300px;
+}
+
+/* 게임 화면 */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.mine-counter, .timer {
+    background-color: black;
+    color: red;
+    font-family: 'Digital', monospace;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+#restart-button {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.game-board {
+    margin: 20px 0;
+    background-color: #ccc;
+    border: 3px solid #999;
+    border-radius: 5px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    position: relative;
+    user-select: none;
+}
+
+/* 게임 셀 스타일 */
+.cell {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border: 1px solid #999;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.cell.revealed {
+    background-color: #e0e0e0;
+}
+
+.cell.flagged::after {
+    content: '🚩';
+    position: absolute;
+    font-size: 18px;
+    line-height: 1;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+/* 깃발 이미지 없을 경우 대체 텍스트 표시 */
+.cell.flagged[data-flag-failed]::after {
+    content: 'F';
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.cell.mine {
+    background-color: #ff0000;
+}
+
+.cell.mine::after {
+    content: '💣';  /* 폭탄 이모지 사용 */
+    position: absolute;
+    font-size: 18px;
+    line-height: 1;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+/* 지뢰 이미지 로드 실패 시 대체 텍스트 */
+.cell.mine[data-mine-failed]::after {
+    content: '*';
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* 숫자 색상 */
+.cell[data-count="1"] {
+    color: blue;
+}
+.cell[data-count="2"] {
+    color: green;
+}
+.cell[data-count="3"] {
+    color: red;
+}
+.cell[data-count="4"] {
+    color: purple;
+}
+.cell[data-count="5"] {
+    color: maroon;
+}
+.cell[data-count="6"] {
+    color: turquoise;
+}
+.cell[data-count="7"] {
+    color: black;
+}
+.cell[data-count="8"] {
+    color: gray;
+}
+
+/* 게임 컨트롤 */
+.game-controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* 게임 종료 화면 */
+#end-stats {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+/* AI 도움말 모달 */
+#ai-help-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none; /* 기본적으로 숨김 */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.ai-message {
+    background-color: #f8f9fa;
+    border-left: 5px solid #2196F3;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#close-modal {
+    background-color: #f44336;
+    margin-top: 15px;
+    z-index: 1001;
+    position: relative;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+#close-modal:hover {
+    background-color: #d32f2f;
+}
+
+/* 비활성화 버튼 스타일 */
+.btn.disabled {
+    background-color: #cccccc;
+    color: #777777;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn.disabled:hover {
+    background-color: #cccccc;
+}
+
+.help-btn.disabled {
+    background-color: #8bb5d8;
+}
+
+/* AI 도움말 버튼 위치 조정 - 우측 하단에 고정 */
+.help-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    animation: pulse 2s infinite;
+    font-size: 14px;
+    padding: 10px 15px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .game-board {
+        grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
+    }
+    
+    .cell {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+    
+    .difficulty-btn {
+        width: 250px;
+    }
+    
+    /* 모바일에서 AI 도움말 버튼 위치 조정 */
+    .help-btn {
+        bottom: 10px;
+        right: 10px;
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+}
